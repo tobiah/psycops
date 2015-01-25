@@ -1,11 +1,4 @@
 #!/usr/bin/python
-
-#psycops
-#=======
-
-#Python Csound score generator
-
-
 ### ### As with any python module, we begin by importing psycops:
 
 from psycops import *

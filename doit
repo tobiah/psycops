@@ -1,0 +1,5 @@
+python README > test.sco
+
+csound -dWR -o test.wav test.orc test.sco 
+
+#play test.wav

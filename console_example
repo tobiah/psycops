@@ -1,0 +1,54 @@
+>>> from psycops import *
+>>> basenote = Event("i1 0 1 10440 200 1")
+>>> basenote[4]
+10440.0
+>>> basenote[0]
+'i'
+>>> basenote.out()
+'i1 0.0 1.0 10440.0 200.0 1.0\n'
+>>> other_note = basenote.copy(start = 1, transpose = MINOR_THIRD) 
+>>> other_note
+['i', 1, 1.0, 1.0, 10440.0, 240.0, 1.0]
+>>> triad = Phrase()
+>>> triad.append(basenote.copy(start = 1, transpose = MINOR_THIRD))
+>>> triad.append(basenote.copy(start = 2, transpose = MAJOR_THIRD))
+>>> triad.append(basenote.copy(start = 3, transpose = PERFECT_FIFTH))
+>>> triad.append(basenote.copy(start = 4, transpose = OCTAVE))
+>>> triad.out()
+>>> print triad.out()
+i1 1.0 1.0 10440.0 240.0 1.0
+i1 2.0 1.0 10440.0 250.0 1.0
+i1 3.0 1.0 10440.0 300.0 1.0
+i1 4.0 1.0 10440.0 400.0 1.0
+>>> big_phrase = Phrase()
+>>> big_phrase.append(triad)
+>>> big_phrase.append(triad.copy(start = 5))
+>>> big_phrase.append(triad.copy(start = 10))
+>>> print big_phrase.out()
+i1 1.0 1.0 10440.0 240.0 1.0
+i1 2.0 1.0 10440.0 250.0 1.0
+i1 3.0 1.0 10440.0 300.0 1.0
+i1 4.0 1.0 10440.0 400.0 1.0
+i1 6.0 1.0 10440.0 240.0 1.0
+i1 7.0 1.0 10440.0 250.0 1.0
+i1 8.0 1.0 10440.0 300.0 1.0
+i1 9.0 1.0 10440.0 400.0 1.0
+i1 11.0 1.0 10440.0 240.0 1.0
+i1 12.0 1.0 10440.0 250.0 1.0
+i1 13.0 1.0 10440.0 300.0 1.0
+i1 14.0 1.0 10440.0 400.0 1.0
+>>> print big_phrase.out(warp = .5, dwarp = .1)
+i1 0.5 0.1 10440.0 240.0 1.0
+i1 1.0 0.1 10440.0 250.0 1.0
+i1 1.5 0.1 10440.0 300.0 1.0
+i1 2.0 0.1 10440.0 400.0 1.0
+i1 3.0 0.1 10440.0 240.0 1.0
+i1 3.5 0.1 10440.0 250.0 1.0
+i1 4.0 0.1 10440.0 300.0 1.0
+i1 4.5 0.1 10440.0 400.0 1.0
+i1 5.5 0.1 10440.0 240.0 1.0
+i1 6.0 0.1 10440.0 250.0 1.0
+i1 6.5 0.1 10440.0 300.0 1.0
+i1 7.0 0.1 10440.0 400.0 1.0
+
+
