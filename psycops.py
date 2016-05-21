@@ -8,26 +8,8 @@ import re
 import pdb
 import wave
 
-def sndlen(wav_file_name):
-	"""
-		Given path and file name, sndlen reports the
-		 play length of a sound file in seconds
-	"""
-	sound_file = wave.open(wav_file_name, 'r')
-	length = sound_file.getnframes() / float(sound_file.getframerate())
-
-	return length
 
 #***** CONSTANTS FOR 'JUST INTERVAL' CREATION *****
-def half_step(number = 1):
-
-	if number == 0:
-		return 1
-
-	factor = 2.0 ** (number / 12.0)
-
-	return factor
-
 
 UNISON 		= 1.0 	/  1.0
 MINOR_SECOND 	= 16.0 	/  15.0
@@ -57,6 +39,16 @@ _MAJOR_SIXTH 	= 1 / MAJOR_SIXTH
 _MINOR_SEVENTH 	= 1 / MINOR_SEVENTH 
 _MAJOR_SEVENTH 	= 1 / MAJOR_SEVENTH 
 _OCTAVE 		= 1 / OCTAVE 
+
+#***** EQUAL TEMPERED HALF-STEP MAKER *****
+def half_step(number = 1):
+
+	if number == 0:
+		return 1
+
+	factor = 2.0 ** (number / 12.0)
+
+	return factor
 
 class Playatts(dict):
 	""" 
